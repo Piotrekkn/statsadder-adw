@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="StatsadderAdwWindow" parent="GtkApplicationWindow">
+  <property name="default-width">200</property>
+    <property name="default-height">300</property>
+
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="menu-model">primary_menu</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <object class="GtkAdjustment" id="adjustmentmonth">
+      <property name="upper">12</property>
+      <property name="lower">1</property>
+      <property name="step-increment">1</property>
+      <property name="page-increment">1</property>
+    </object>
+    <object class="GtkAdjustment" id="adjustmentday">
+      <property name="upper">31</property>
+      <property name="lower">1</property>
+      <property name="step-increment">1</property>
+      <property name="page-increment">1</property>
+    </object>
+    <object class="GtkAdjustment" id="adjustmentyear">
+      <property name="upper">3000</property>
+      <property name="lower">1995</property>
+      <property name="step-increment">1</property>
+      <property name="page-increment">1</property>
+    </object>
+    <child>
+      <object class="GtkBox">
+
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+        <property name="orientation">vertical</property>
+        <property name="margin-start">20</property>
+        <property name="margin-end">20</property>
+        <property name="margin-top">20</property>
+        <property name="margin-bottom">20</property>
+        <property name="margin-bottom">20</property>
+
+         <child>
+                  <object class="GtkLabel" id="Title">
+                    <property name="label">Stats adder 3000+</property>
+                     <property name="margin-bottom">40</property>
+                     <property name="margin-top">20</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                      <attribute name="scale" value="2"/>
+
+                    </attributes>
+                  </object>
+                </child>
+
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="orientation">horizontal</property>
+
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="orientation">vertical</property>
+                <property name="margin-start">20</property>
+                <property name="margin-end">20</property>
+                <property name="margin-bottom">20</property>
+                <child>
+                  <object class="GtkLabel" id="DayLabel">
+                    <property name="label">Day:</property>
+                     <property name="margin-bottom">20</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+
+
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="DayEnter">
+                    <property name="adjustment">adjustmentday</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="orientation">vertical</property>
+                <property name="margin-start">20</property>
+                <property name="margin-end">20</property>
+                <child>
+                  <object class="GtkLabel" id="MonthLabel">
+                    <property name="label">Month:</property>
+                     <property name="margin-bottom">20</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="MonthEnter">
+                    <property name="adjustment">adjustmentmonth</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="orientation">vertical</property>
+                <property name="margin-start">20</property>
+                <property name="margin-end">20</property>
+                <child>
+                  <object class="GtkLabel" id="YearLabel">
+                    <property name="label">Year:</property>
+                     <property name="margin-bottom">20</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="YearEnter">
+
+                    <property name="adjustment">adjustmentyear</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+
+
+
+
+
+        </child>
+ <child>
+               <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="orientation">horizontal</property>
+                <property name="margin-start">20</property>
+                <property name="margin-end">20</property>
+                 <property name="margin-top">20</property>
+        <property name="margin-bottom">20</property>
+                <child>
+              <object class="GtkEntry" id="NameEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+	<property name="width-request">345</property>
+                <property name="margin-end">20</property>
+
+
+             </object>
+
+    </child> <child>
+                  <object class="GtkButton" id="ButtonAdd">
+                     <property name="label"  translatable="yes">Add</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+
+ <signal name="clicked" handler="button_clicked" swapped="yes"/>
+
+
+
+
+             </object>
+
+
+
+          </child>
+          </object>
+           </child>
+      </object>
+    </child>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+        <item>
+        <attribute name="label" translatable="yes">_Reset current date</attribute>
+        <attribute name="action">defaults</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Stats adder</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

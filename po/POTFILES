@@ -1,0 +1,7 @@
+data/com.statsadder.adw.desktop.in
+data/com.statsadder.adw.appdata.xml.in
+data/com.statsadder.adw.gschema.xml
+src/statsadder_adw-window.ui
+src/main.c
+src/statsadder_adw-window.c
+
